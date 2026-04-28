@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arfan Trans - Rental Mobil Yogyakarta</title>
+    
+    <!-- LIBRARIES (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- AI EDITABLE CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#0A2647', 
+                        brandOrange: '#F0592A',
+                        brandLight: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden; 
+        }
+
+        /* Hero Slideshow Logic */
+        .hero-slider-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(10, 38, 71, 0.7), rgba(10, 38, 71, 0.7));
+        }
+
+        .nav-scrolled {
+            background-color: white !important;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brandLight text-gray-800">
+
+    <!-- HEADER / NAVIGATION -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="h-14 bg-white p-2 rounded-xl shadow-md">
+                        <img src="Logo.jpg" alt="Arfan Trans Logo" class="h-full object-contain">
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 font-semibold text-white transition-colors" id="nav-links">
+                    <a href="#beranda" class="hover:text-brandOrange transition">Beranda</a>
+                    <a href="#armada" class="hover:text-brandOrange transition">Armada</a>
+                    <a href="#gallery" class="hover:text-brandOrange transition">Gallery</a>
+                    <a href="#layanan" class="hover:text-brandOrange transition">Layanan</a>
+                    <a href="#kontak" class="hover:text-brandOrange transition">Kontak</a>
+                </div>
+
+                <a href="https://wa.me/628136665319" class="bg-brandOrange text-white px-6 py-2.5 rounded-lg font-bold hover:scale-105 transition shadow-lg">
+                    Pesan WA
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION WITH SLIDESHOW -->
+    <section id="beranda" class="hero-slider-container">
+        <!-- Slides -->
+        <div class="slide active" style="background-image: url('https://malioborotour.com/images/artikel/rental-innova-jogja-murah--reborn-zenix-venture-42.jpeg');"></div>
+        <div class="slide" style="background-image: url('3612c0eb-f6b0-4007-bbae-5592f6451e98.jpg');"></div>
+        <div class="slide" style="background-image: url('7b4fafd4-5bce-456a-808b-a137d6a70c1d.jpg');"></div>
+        <div class="slide" style="background-image: url('1925c4cd-b63f-44b0-9e5b-15c543cfe8c3.jpg');"></div>
+
+        <!-- Hero Content Overlay -->
+        <div class="relative z-10 h-full flex items-center justify-center text-center text-white px-4">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Arfan <span class="text-brandOrange">Trans</span></h1>
+                <p class="text-xl md:text-2xl mb-10 text-blue-50 opacity-90 leading-relaxed">Solusi Rental Mobil Terlengkap & City Tour Profesional di Yogyakarta.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#armada" class="bg-brandOrange px-10 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition shadow-xl">Cek Armada</a>
+                    <a href="#kontak" class="bg-white/10 backdrop-blur-md px-10 py-4 rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="max-w-6xl mx-auto px-4 -mt-20 relative z-10">
+        <div class="bg-white grid grid-cols-2 md:grid-cols-4 gap-4 p-8 rounded-3xl shadow-2xl" data-aos="zoom-in">
+            <div class="text-center p-4">
+                <span class="block text-4xl font-black text-brandBlue counter" data-target="25">0</span>
+                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Unit Mobil</span>
+            </div>
+            <div class="text-center p-4 border-l border-gray-100">
+                <span class="block text-4xl font-black text-brandBlue counter" data-target="1200">0</span>
+                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Pelanggan</span>
+            </div>
+            <div class="text-center p-4 border-l border-gray-100">
+                <span class="block text-4xl font-black text-brandBlue">24/7</span>
+                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Support</span>
+            </div>
+            <div class="text-center p-4 border-l border-gray-100">
+                <span class="block text-4xl font-black text-brandBlue counter" data-target="10">0</span>
+                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Tahun Pengalaman</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARMADA LIST -->
+    <section id="armada" class="py-24 bg-brandBlue text-white rounded-t-[4rem]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-16" data-aos="fade-right">
+                <h2 class="text-brandOrange font-bold text-sm uppercase tracking-widest mb-4">Pilihan Armada</h2>
+                <p class="text-4xl font-black">Armada Terlengkap Kami</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-gray-900">
+                <!-- Unit 1: Innova Zenix -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.tokopedia.net/img/cache/700/Vqb7p4/2023/1/17/37b1d1e4-8594-4696-9896-1c22d7c585c5.jpg" alt="Innova Zenix" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Innova Zenix</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 1.100.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 7 Seat</span>
+                            <span><i class="fas fa-bolt text-brandOrange mr-1"></i> Hybrid</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 2: Alphard -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://www.toyota.astra.co.id/sites/default/files/2023-08/1-alphard-platinum-white-pearl-mica.png" alt="Toyota Alphard" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Toyota Alphard</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 3.500.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-crown text-brandOrange mr-1"></i> VIP</span>
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 6 Seat</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 3: ELF -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://astraisuzu.co.id/wp-content/uploads/2021/04/Elf-NLR-Microbus.png" alt="Micro Bus ELF" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Micro Bus ELF</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 1.300.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-bus text-brandOrange mr-1"></i> 19 Seat</span>
+                            <span><i class="fas fa-snowflake text-brandOrange mr-1"></i> Full AC</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 4: Agya -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://www.toyota.astra.co.id/sites/default/files/2023-03/1-agya-white.png" alt="Toyota Agya" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Toyota Agya</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 500.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-leaf text-brandOrange mr-1"></i> Irit</span>
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 5 Seat</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 5: Avanza -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://www.toyota.astra.co.id/sites/default/files/2021-11/1-avanza-purplish-silver.png" alt="Toyota Avanza" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Toyota Avanza</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 600.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 7 Seat</span>
+                            <span><i class="fas fa-gas-pump text-brandOrange mr-1"></i> Bensin</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 6: Innova Reborn -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://www.toyota.astra.co.id/sites/default/files/2020-10/1_super-white-innova.png" alt="Innova Reborn" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Innova Reborn</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 850.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 7 Seat</span>
+                            <span><i class="fas fa-oil-can text-brandOrange mr-1"></i> Diesel</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Unit 7: Hiace -->
+                <div class="bg-white rounded-[2.5rem] overflow-hidden group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden bg-gray-50 flex items-center justify-center p-4">
+                        <img src="https://www.toyota.astra.co.id/sites/default/files/2021-12/1-hiace-commuter-white.png" alt="Toyota Hiace" class="max-h-full object-contain group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-1">Toyota Hiace</h4>
+                        <p class="text-gray-400 text-xs mb-4">Mulai dari Rp 1.100.000 / 12 Jam</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-600 mb-6">
+                            <span><i class="fas fa-users text-brandOrange mr-1"></i> 15 Seat</span>
+                            <span><i class="fas fa-shield-alt text-brandOrange mr-1"></i> Nyaman</span>
+                        </div>
+                        <a href="https://wa.me/628136665319" class="block w-full text-center py-3 bg-brandBlue text-white rounded-xl font-bold hover:bg-brandOrange transition text-sm">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY PERJALANAN (LENGKAP) -->
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brandOrange font-bold text-sm uppercase tracking-[0.3em] mb-4">Gallery Perjalanan</h2>
+                <p class="text-4xl font-black text-brandBlue">Momen Wisata Bersama Kami</p>
+            </div>
+
+            <!-- Grid Foto Dokumentasi Lengkap -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Foto 1 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up">
+                    <img src="1e9eb469-9f48-414a-a5e5-8fd610c99c65.jpg" alt="Rombongan Tamu Arfan Trans" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="7b4fafd4-5bce-456a-808b-a137d6a70c1d.jpg" alt="Jeep Lava Tour Merapi" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <!-- Foto 3 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up" data-aos-delay="200">
+                    <img src="1925c4cd-b63f-44b0-9e5b-15c543cfe8c3.jpg" alt="Wisata City Tour Jogja" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <!-- Foto 4 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up">
+                    <img src="3612c0eb-f6b0-4007-bbae-5592f6451e98.jpg" alt="Dokumentasi Perjalanan" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <!-- Foto 5 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="36719e24-5e73-4802-b89b-9718b2bfade4.jpg" alt="Layanan Rental Mobil" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <!-- Foto 6 -->
+                <div class="gallery-item relative rounded-[2rem] overflow-hidden aspect-[4/3] shadow-lg group" data-aos="fade-up" data-aos-delay="200">
+                    <img src="518878b2-edf1-483b-850a-9f8da3c1e1b5.jpg" alt="Perjalanan Tamu Arfan Trans" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="layanan" class="py-24 bg-brandLight">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-20" data-aos="fade-up">
+                <h2 class="text-brandOrange font-bold text-sm uppercase tracking-[0.3em] mb-4">Layanan Unggulan</h2>
+                <p class="text-4xl font-black text-brandBlue">Mengapa Harus Arfan Trans?</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 text-brandBlue rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Unit Selalu Prima</h3>
+                    <p class="text-gray-500">Kebersihan dan performa mesin unit kami selalu terjaga untuk kenyamanan Anda.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-orange-50 text-brandOrange rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Driver Berpengalaman</h3>
+                    <p class="text-gray-500">Ramah, sopan, dan menguasai seluruh medan perjalanan wisata di Yogyakarta.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-50 text-brandBlue rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">On Time</h3>
+                    <p class="text-gray-500">Kami menghargai waktu Anda. Penjemputan tepat waktu adalah prioritas kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="kontak" class="py-24 bg-brandLight">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
+                <!-- Info Kolom -->
+                <div class="md:w-1/2 bg-brandBlue p-12 md:p-20 text-white" data-aos="fade-right">
+                    <h2 class="text-4xl font-black mb-8">Pemesanan Mudah</h2>
+                    <p class="text-blue-100 mb-12">Siap melayani perjalanan dinas, keluarga, maupun wisata rombongan Anda.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <i class="fab fa-whatsapp text-2xl text-brandOrange mt-1"></i>
+                            <div>
+                                <p class="text-xs text-blue-300 font-bold uppercase tracking-widest mb-1">Admin Fast Response</p>
+                                <p class="text-xl font-bold">0813-6665-319</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-map-marker-alt text-2xl text-brandOrange mt-1"></i>
+                            <div>
+                                <p class="text-xs text-blue-300 font-bold uppercase tracking-widest mb-1">Lokasi Kantor</p>
+                                <p class="text-lg font-semibold leading-snug">Ngestiharjo, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kolom -->
+                <div class="md:w-1/2 p-12 md:p-20" data-aos="fade-left">
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-400 mb-2 block tracking-wider">Nama Anda</label>
+                                <input type="text" class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-brandOrange transition">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-400 mb-2 block tracking-wider">Nomor WA</label>
+                                <input type="tel" class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-brandOrange transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase text-gray-400 mb-2 block tracking-wider">Pilih Armada</label>
+                            <select class="w-full bg-gray-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-brandOrange transition">
+                                <option>Innova Zenix</option>
+                                <option>Toyota Alphard</option>
+                                <option>Micro Bus ELF</option>
+                                <option>Toyota Agya</option>
+                                <option>Toyota Avanza</option>
+                                <option>Innova Reborn</option>
+                                <option>Toyota Hiace</option>
+                            </select>
+                        </div>
+                        <button type="button" onclick="window.location.href='https://wa.me/628136665319'" class="w-full py-5 bg-brandOrange text-white rounded-2xl font-bold text-lg hover:scale-[1.02] active:scale-95 transition shadow-lg mt-4">
+                            Kirim ke WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-gray-100 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <img src="Logo.jpg" alt="Logo" class="h-12 mx-auto mb-6 object-contain">
+            <p class="text-gray-400 text-sm mb-2">&copy; 2026 Arfan Trans Yogyakarta. Profesional Transport Service.</p>
+            <p class="text-gray-300 text-xs">Alamat: Ngestiharjo, Kec. Kasihan, Bantul, DIY.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Navbar Scroll
+        const nav = document.getElementById('main-nav');
+        const navLinks = document.getElementById('nav-links');
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+                navLinks.classList.replace('text-white', 'text-brandBlue');
+            } else {
+                nav.classList.remove('nav-scrolled');
+                navLinks.classList.replace('text-brandBlue', 'text-white');
+            }
+        };
+
+        // Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // Counter
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    let count = 0;
+                    const speed = target / 40;
+                    const update = () => {
+                        if (count < target) {
+                            count += speed;
+                            entry.target.innerText = Math.ceil(count);
+                            setTimeout(update, 30);
+                        } else {
+                            entry.target.innerText = target + '+';
+                        }
+                    };
+                    update();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => observer.observe(c));
+    </script>
+</body>
+</html>
